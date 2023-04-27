@@ -1,10 +1,29 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { fetchTrendMovies } from 'services/api';
+import MovieList from 'components/MovieList';
 
 const Home = () => {
+  const [trendingMovies, setTrendingMovies] = useState([]);
+  //const [isLoading, setIsLoading] = useState(true);
+  //const [error, setError] = useState(false);
+
   useEffect(() => {
-    //HTTP запит на трендові фільми
+    const fetchTrendingMovies = async () => {
+      try {
+        const { results } = await fetchTrendMovies();
+        setTrendingMovies(results);
+      } catch (error) {
+        error(error.message);
+      }
+    };
+    fetchTrendingMovies();
   }, []);
-  return <div>Home домашня</div>;
+
+  return (
+    <div>
+      <MovieList trendingMovies={trendingMovies} />
+    </div>
+  );
 };
 
 export default Home;
