@@ -1,5 +1,6 @@
 import { lazy } from 'react';
 import { Route, Routes, Navigate } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
 import SharedLayout from './SharedLayout';
 
 const Home = lazy(() => import('../pages/Home'));
@@ -23,6 +24,7 @@ export const App = () => {
           <Route path="*" element={<Navigate to="/" />} />
         </Route>
       </Routes>
+      <Toaster />
     </>
   );
 };

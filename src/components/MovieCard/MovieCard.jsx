@@ -5,6 +5,7 @@ const MovieCard = ({ movie }) => {
   //const backLinkLocationRef = location.state?.from ?? '/movies';
   const { title, genres, release_date, overview, vote_average, poster_path } =
     movie;
+  const releaseDate = new Date(release_date).getFullYear();
   const userScore = ((vote_average / 10) * 100).toFixed(0);
   const imgUrl = `https://image.tmdb.org/t/p/w300/${poster_path}`;
 
@@ -13,12 +14,13 @@ const MovieCard = ({ movie }) => {
       <div>
         <img src={imgUrl} alt="film-card" />
         <div>
-          <h1>{title}</h1>
-          <h3>Release: {release_date}</h3>
+          <h1>
+            {title} ({releaseDate})
+          </h1>
           <p>User score: {userScore}%</p>
-          <h2>Overwiew</h2>
+          <h3>Overwiew</h3>
           <p>{overview}</p>
-          <h2>Genre</h2>
+          <h3>Genres</h3>
           <p>{genres && genres[0].name}</p>
         </div>
       </div>

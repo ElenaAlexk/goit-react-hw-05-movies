@@ -7,7 +7,7 @@ import MovieCard from 'components/MovieCard/MovieCard';
 
 const MovieDetails = () => {
   const location = useLocation();
-  const backLinkLocationRef = useRef(location.state?.from ?? '/movies');
+  const backLinkLocationRef = useRef(location.state?.from ?? '/');
   const { movieId } = useParams();
   const [selectedMovie, setSelectedMovie] = useState({});
 
@@ -26,9 +26,9 @@ const MovieDetails = () => {
 
   return (
     <>
-      <h1>MovieDetails: {movieId}</h1>
       <Link to={backLinkLocationRef.current}>Go back</Link>
       <MovieCard movie={selectedMovie} />
+      <h3>Additional information</h3>
       <ul>
         <li>
           <Link to="cast">Cast</Link>
