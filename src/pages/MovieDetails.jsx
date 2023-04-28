@@ -26,7 +26,22 @@ const MovieDetails = () => {
 
   return (
     <>
-      <Link to={backLinkLocationRef.current}>Go back</Link>
+      <Link to={backLinkLocationRef.current}>
+        <button
+          type="button"
+          style={{
+            width: '100px',
+            height: '25px',
+            display: 'inline-block',
+            marginTop: '15px',
+            borderRadius: '5px',
+            border: '1px solid rgb(13, 87, 170)',
+            cursor: 'pointer',
+          }}
+        >
+          Go back
+        </button>
+      </Link>
       <MovieCard movie={selectedMovie} />
       <h3>Additional information</h3>
       <ul>

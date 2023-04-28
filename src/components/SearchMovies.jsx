@@ -14,8 +14,8 @@ const SearchMovies = ({ onSubmit }) => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <input name="query" type="text" />
+      <form onSubmit={handleSubmit} style={{ marginTop: '20px' }}>
+        <input name="query" type="text" style={{ width: '300px' }} />
         <button type="submit">Search</button>
       </form>
     </div>

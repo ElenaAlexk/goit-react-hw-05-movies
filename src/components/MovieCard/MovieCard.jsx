@@ -1,4 +1,4 @@
-//import { Link, useLocation } from 'react-router-dom';
+import css from './MovieCard.module.css';
 
 const MovieCard = ({ movie }) => {
   //const location = useLocation();
@@ -11,7 +11,7 @@ const MovieCard = ({ movie }) => {
 
   return (
     <>
-      <div>
+      <div className={css.cardContainer}>
         <img src={imgUrl} alt="film-card" />
         <div>
           <h1>
