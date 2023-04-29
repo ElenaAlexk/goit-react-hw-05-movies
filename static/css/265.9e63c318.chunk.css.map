@@ -1,1 +1,0 @@
-{"version":3,"file":"static/css/265.9e63c318.chunk.css","mappings":"AAAA,gCACE,YAAa,CACb,QAAS,CACT,eACF","sources":["components/MovieCard/MovieCard.module.css"],"sourcesContent":[".cardContainer {\n  display: flex;\n  gap: 40px;\n  margin-top: 20px;\n}\n"],"names":[],"sourceRoot":""}
