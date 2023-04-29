@@ -4,6 +4,7 @@ import { Outlet, useParams, useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { fetchMoviesById } from 'services/api';
 import MovieCard from 'components/MovieCard/MovieCard';
+import css from './MovieDetails.module.css';
 
 const MovieDetails = () => {
   const location = useLocation();
@@ -27,29 +28,22 @@ const MovieDetails = () => {
   return (
     <>
       <Link to={backLinkLocationRef.current}>
-        <button
-          type="button"
-          style={{
-            width: '100px',
-            height: '25px',
-            display: 'inline-block',
-            marginTop: '15px',
-            borderRadius: '5px',
-            border: '1px solid rgb(13, 87, 170)',
-            cursor: 'pointer',
-          }}
-        >
-          Go back
+        <button type="button" className={css.btn}>
+          &#8592; Go back
         </button>
       </Link>
       <MovieCard movie={selectedMovie} />
       <h3>Additional information</h3>
-      <ul>
+      <ul className={css.movieInfo}>
         <li>
-          <Link to="cast">Cast</Link>
+          <Link className={css.movieInfoLink} to="cast">
+            Cast
+          </Link>
         </li>
         <li>
-          <Link to="reviews">Reviews</Link>
+          <Link className={css.movieInfoLink} to="reviews">
+            Reviews
+          </Link>
         </li>
       </ul>
       <Suspense fallback={<div>Loading...</div>}>

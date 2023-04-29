@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { toast } from 'react-hot-toast';
 
 const SearchMovies = ({ onSubmit }) => {
@@ -21,4 +22,7 @@ const SearchMovies = ({ onSubmit }) => {
     </div>
   );
 };
+
+SearchMovies.propTypes = { onSubmit: PropTypes.func.isRequired };
+
 export default SearchMovies;

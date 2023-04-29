@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import css from './MovieCard.module.css';
 
 const MovieCard = ({ movie }) => {
@@ -7,12 +8,12 @@ const MovieCard = ({ movie }) => {
     movie;
   const releaseDate = new Date(release_date).getFullYear();
   const userScore = ((vote_average / 10) * 100).toFixed(0);
-  const imgUrl = `https://image.tmdb.org/t/p/w300/${poster_path}`;
+  const imgUrl = `https://image.tmdb.org/t/p/w300${poster_path}`;
 
   return (
     <>
       <div className={css.cardContainer}>
-        <img src={imgUrl} alt="film-card" />
+        <img src={imgUrl} alt={title} />
         <div>
           <h1>
             {title} ({releaseDate})
@@ -26,5 +27,18 @@ const MovieCard = ({ movie }) => {
       </div>
     </>
   );
+};
+
+MovieCard.propTypes = {
+  movie: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    release_date: PropTypes.string.isRequired,
+    poster_path: PropTypes.string.isRequired,
+    vote_average: PropTypes.number,
+    overview: PropTypes.string,
+    genres: PropTypes.arrayOf(
+      PropTypes.shape({ name: PropTypes.string.isRequired })
+    ),
+  }).isRequired,
 };
 export default MovieCard;
